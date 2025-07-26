@@ -25,6 +25,11 @@ A real-time full-stack web application that displays incoming venue bookings liv
 
 ---
 
+## 📸 Screenshot
+
+![Live Booking UI](./frontend/public/screenshot.png)
+
+---
 ## 📁 Project Structure (Split Frontend & Backend)
 
 ```
@@ -99,11 +104,7 @@ Each mock booking object looks like this:
 }
 ```
 
----
 
-## 📸 Screenshot
-
-![Live Booking UI](./frontend/public/screenshot.png)
 
 
 
