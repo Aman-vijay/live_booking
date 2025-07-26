@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live Bookings Viewer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📖 Live Bookings Dashboard</h1>
+    <ul id="bookings-list"></ul>
+   
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    const list = document.getElementById('bookings-list');
+
+    socket.on('new-booking', (data) => {
+      const item = document.createElement('li');
+      item.className = 'booking';
+
+      item.innerHTML = `
+        <div class="booking-header">
+          <span class="venue">${data.venueName}</span>
+          <span class="time">${data.time}</span>
+        </div>
+        <div class="booking-details">
+          Party Size: <strong>${data.partySize}</strong>
+        </div>
+      `;
+
+      list.prepend(item);
+    });
+  </script>
+</body>
+</html>
